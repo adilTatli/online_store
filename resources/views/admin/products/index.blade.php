@@ -21,7 +21,7 @@
             <div class="card-body">
 
                 <a href="{{ route('admin.products.create') }}" class="btn btn-primary mb-3">
-                    {{ __('add_product') }}
+                    {{ __('products.add_product') }}
                 </a>
                 @if (count($products))
                     <div class="table-responsive">

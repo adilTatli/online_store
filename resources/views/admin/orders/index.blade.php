@@ -40,17 +40,23 @@
                                     <td>{{ $order->cart->status }}</td>
                                     <td>{{ $order->product->price }}</td>
                                     <td>
-                                        <form method="post" action="{{ route('admin.orders.approved', ['id' => $order->id]) }}">
+                                        <form method="post" action="{{ route('admin.orders.approved', ['id' => $order->id]) }}" class="float-left mr-3">
                                             @csrf
                                             @method('PUT')
-                                            <button type="submit">{{ __('orders.confirm_order') }}</button>
+                                            <button type="submit" class="btn btn-block btn-success btn-sm">
+                                                <i class="fas fa-check-circle"></i>
+                                                {{ __('orders.confirm_order') }}
+                                            </button>
                                         </form>
 
                                         <!-- Форма для отклонения заказа -->
-                                        <form method="post" action="{{ route('admin.orders.reject', ['id' => $order->id]) }}">
+                                        <form method="post" action="{{ route('admin.orders.reject', ['id' => $order->id]) }}" class="float-left">
                                             @csrf
                                             @method('PUT')
-                                            <button type="submit">{{ __('orders.reject_order') }}</button>
+                                            <button type="submit" class="btn btn-danger btn-sm">
+                                                <i class="fas fa-times-circle"></i>
+                                                {{ __('orders.reject_order') }}
+                                            </button>
                                         </form>
                                     </td>
                                 </tr>

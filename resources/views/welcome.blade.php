@@ -17,17 +17,24 @@
     </head>
     <body class="antialiased">
         <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+
+            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+                @guest
+                    <a href="{{ route('login.create') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{ __('signin.auth_title') }}</a>
+                @endguest
+            </div>
+
             @role ('maker')
-                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+                <div class="sm:fixed sm:top-0 sm:right-1 p-6 text-right z-10">
                     @auth
-                        <a href="{{ route('admin.index') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Personal account</a>
+                        <a href="{{ route('admin.index') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{ __('signin.personal_account') }}</a>
                     @endauth
                 </div>
             @endrole
 
-            <div class="sm:fixed sm:top-0 sm:right-1 p-6 text-right z-10">
+            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                 @auth
-                    <a href="{{ route('logout') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Logout</a>
+                    <a href="{{ route('logout') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{ __('signin.logout') }}</a>
                 @endauth
             </div>
 

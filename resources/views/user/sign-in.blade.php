@@ -17,7 +17,7 @@
                     <label for="password" class="form-label">{{ __('signin.password') }}</label>
                     <input name="password" type="password" class="form-control" id="password" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Авторизация</button>
+                <button type="submit" class="btn btn-primary">{{ __('signin.auth_title') }}</button>
 
             </form>
         </div>
